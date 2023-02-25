@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Review Delete{% endblock title %}
+
+{% block content %}
+<h1>Вы точно хотите безвозвратно удалить отзыв?</h1>
+<h4>{{ review.author  }}</h4>
+<form action="{% url 'confirm_delete_review' review.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger rounded-pill" >DELETE</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary rounded-pill">Cancel</a>
+</form>
+{% endblock content %}
