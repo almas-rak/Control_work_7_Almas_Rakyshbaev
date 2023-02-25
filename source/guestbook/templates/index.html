@@ -5,9 +5,11 @@
 
 <div class="container overflow-hidden ">
 {% for review in reviews %}
-<div class="card text-start gy-5">
+<div class="card text-start" style="margin: 15px;">
   <div class="card-body">
-    <h4 class="card-title">{{review.author}} ({{review.email}}) <a href="{% url 'update_review' review.pk %}">e</a> <a>d</a> </h4> 
+    <h4 class="card-title">{{review.author}} ({{review.email}})</h4> 
+    <a href="{% url 'update_review' review.pk %}" class='btn  btn-secondary rounded-pill'>edit</a> 
+    <a href="{% url 'delete_review' review.pk %}" class='btn btn-danger rounded-pill'>delete</a>
     <p class="card-text">{{review.description}}</p>
   </div>
 </div>
