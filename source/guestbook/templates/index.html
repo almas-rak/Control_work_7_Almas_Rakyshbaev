@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}index{% endblock title %}
+
+{% block content %}
+
+<div class="container overflow-hidden ">
+{% for review in reviews %}
+<div class="card text-start gy-5">
+  <div class="card-body">
+    <h4 class="card-title">{{review.author}} ({{review.email}}) <a>e</a> <a>d</a> </h4> 
+    <p class="card-text">{{review.description}}</p>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+{% endblock content %}
