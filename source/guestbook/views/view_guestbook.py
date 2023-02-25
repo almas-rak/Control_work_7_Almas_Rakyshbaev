@@ -35,3 +35,12 @@ def update_review(request: WSGIRequest, pk):
             return redirect('home')
         else:
             return render(request, 'update_review.html', context={'form': form})
+
+
+def delete_review(request: WSGIRequest, pk):
+    review = get_object_or_404(GuestReview, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'review_confirm_delete.html', context={'review': review})
+    else:
+        review.delete()
+        return redirect('home')
