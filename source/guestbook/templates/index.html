@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}index{% endblock title %}
 
 {% block content %}
@@ -7,9 +8,10 @@
 {% for review in reviews %}
 <div class="card text-start" style="margin: 15px;">
   <div class="card-body">
+    
     <h4 class="card-title">{{review.author}} ({{review.email}})</h4> 
-    <a href="{% url 'update_review' review.pk %}" class='btn  btn-secondary rounded-pill'>edit</a> 
-    <a href="{% url 'delete_review' review.pk %}" class='btn btn-danger rounded-pill'>delete</a>
+    <a href="{% url 'update_review' review.pk %}" ><img src="{% static 'icon/pen.png' %}" style="width:25px; height:20px;"></a> 
+    <a href="{% url 'delete_review' review.pk %}" ><img src="{% static 'icon/remove.png' %}" style="width:25px; height:20px;"></a>
     <p class="card-text">{{review.description}}</p>
   </div>
 </div>
