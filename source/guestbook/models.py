@@ -16,5 +16,8 @@ class GuestReview(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата и время редактирования')
     status = models.CharField(max_length=13, choices=STATUS_CHOICES, default='active')
 
+    class Meta:
+        ordering = ['-created_at']
+
     def __str__(self):
         return f'{self.author} ({self.email})'
