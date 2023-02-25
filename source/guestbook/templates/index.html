@@ -7,7 +7,7 @@
 {% for review in reviews %}
 <div class="card text-start gy-5">
   <div class="card-body">
-    <h4 class="card-title">{{review.author}} ({{review.email}}) <a>e</a> <a>d</a> </h4> 
+    <h4 class="card-title">{{review.author}} ({{review.email}}) <a href="{% url 'update_review' review.pk %}">e</a> <a>d</a> </h4> 
     <p class="card-text">{{review.description}}</p>
   </div>
 </div>
